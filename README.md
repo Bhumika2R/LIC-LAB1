@@ -4,7 +4,7 @@
 Design CS Amplifier using NMOSFET in tsmc 180nm using VDD=2V, P<=1.5mW, C=1pF, Ln=560nm
 # 2.Theory:
 The MOSFET structure has become the most important device structure in the Electronics industry. It dominates the integrated circuit technology in Very Large Scale Integrated (VLSI) digital circuits based on n-channel MOSFETs and Complementary n- Channel and p-channel MOSFETs (CMOS). The technical importance of the MOSFET results from Its low power consumption, simple geometry, and small size, resulting in very high packing Densities and compatibility with VLSI manufacturing technology. Two of the most popular Configurations of small-signal MOSFET amplifiers are the common source and common drain Configurations. The common source circuit is shown below. The common sources, like all MOSFET amplifiers, have the characteristic of high input impedance. High input impedance is Desirable to keep the amplifier from loading the signal source. This high input impedance is Controlled by the bias resistor). Normally the value of the bias resistors is chosen as High as possible. However, too big a value can cause a significant voltage drop due to the gate Leakage current. A large voltage drop is undesirable because it can disturb the bias point. For Amplifier operation the MOSFET should be biased in the active region of the characteristics.
-# Circuit Design 1 without Capacitor:
+# Circuit Design-1 without Capacitor:
 <img width="893" height="650" alt="image" src="https://github.com/user-attachments/assets/77bbda1d-4a91-4f6c-bcea-9902065919d6" />
 
 # 3.Procedure:
@@ -176,7 +176,7 @@ Since this is a single-pole response, the bandwidth of the circuit is equal to t
 
    Bandwidth = 41.88 GHz
 
-# Circuit Design 2 with Capacitor:
+# Circuit Design-2 with Capacitor:
 <img width="1021" height="637" alt="image" src="https://github.com/user-attachments/assets/d8c82dcf-20c1-4cfe-9d16-af3f36a4502b" />
 
 # 9. AC Analysis with capacitor:
