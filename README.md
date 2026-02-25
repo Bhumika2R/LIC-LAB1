@@ -177,7 +177,7 @@ Since this is a single-pole response, the bandwidth of the circuit is equal to t
    Bandwidth = 41.88 GHz
 
 # Circuit Design-2 with Capacitor:
-<img width="1021" height="637" alt="image" src="https://github.com/user-attachments/assets/d8c82dcf-20c1-4cfe-9d16-af3f36a4502b" />
+<img width="1473" height="855" alt="image" src="https://github.com/user-attachments/assets/685e48f2-ade9-4df6-b09c-e4109b5c4c54" />
 
 # 9. AC Analysis with capacitor:
 <img width="1912" height="416" alt="image" src="https://github.com/user-attachments/assets/6c055c25-c12e-492d-9092-8a1e01f139c9" />
