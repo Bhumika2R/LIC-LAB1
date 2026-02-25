@@ -84,8 +84,12 @@ Step 6: Analyze Results
 
    Kn′= 230×10^−6 A/V^2
 
-   VGS​=VG​−VS​
+   VGS​=VG​−VS
+   ​
+   
    VGS=0.9−0
+   
+   
    VGS=0.9V
 
    ID​=​K′*W/L​(Vov​)^2
