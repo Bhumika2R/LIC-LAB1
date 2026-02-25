@@ -147,7 +147,7 @@ The voltage gain of the circuit is determined from the transfer characteristics 
 
 * **Transconductance Calculation:**
         gm = 2Id / Vov
-           = 2*200*10^-6/(0.9-0.36)
+           = 2x200x10^-6/(0.9-0.36)
            = 7.407 × 10⁻⁴ S
 # 7.2 Theoritical Results:
 * **Small-signal Voltage Gain:**
