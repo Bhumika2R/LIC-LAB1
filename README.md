@@ -137,7 +137,7 @@ The voltage gain of the circuit is determined from the transfer characteristics 
 
 * **Voltage Gain:**
         Av = ΔVout / ΔVin
-        Av = 0.057 / 0.019 = 3
+        Av = (1.026-0.969) / (0.909-0.890) = 3
 
 * **Gain in decibels:**
         Gain(dB) = 20 log10(Av)
@@ -147,6 +147,7 @@ The voltage gain of the circuit is determined from the transfer characteristics 
 
 * **Transconductance Calculation:**
         gm = 2Id / Vov
+           = 2*200*10^-6/(0.9-0.36)
            = 7.407 × 10⁻⁴ S
 # 7.2 Theoritical Results:
 * **Small-signal Voltage Gain:**
