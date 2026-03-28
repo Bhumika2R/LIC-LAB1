@@ -221,6 +221,348 @@ $$W = (299.52 × 10⁻¹²) / (2.266 × 10⁻⁵)$$
 
 $$W ≈ 11.235 μm$$
 
+## 2. DC Analysis:
+
+ <img width="1910" height="847" alt="image" src="https://github.com/user-attachments/assets/5a15f523-7bf2-415f-b5bf-56578fbc08ff" />
+
+
+By varying width:
+
+W1 = W2 =19.978 µm → Id = 0.416 mA
+
+## 3. Input Common Mode Range (ICMR):
+
+Input Common Mode Range (ICMR)
+
+The input common-mode range is the range of input voltage over which all transistors in the differential amplifier remain in saturation and operate properly.
+
+### 3.1 Minimum Input Common Mode Voltage
+
+For proper operation, the NMOS transistors must remain ON:
+
+Condition:
+$$VGS ≥ VT$$
+
+We know:
+$$VGS = VICM − VS$$
+
+So,
+
+$$VICM(min) = VS + VT$$
+
+Substituting values:
+$$VS = −0.7 V$$
+$$VT = 0.36 V$$
+
+$$VICM(min) = −0.7 + 0.36$$
+
+$$VICM(min) = −0.34 V$$
+
+### 3.2 Maximum Input Common Mode Voltage
+
+To keep the transistors in saturation:
+
+Condition:
+$$VDS ≥ VOV$$
+
+Given:
+$$VD = 0 V$$
+$$VS = −0.7 V$$
+
+$$VDS = VD − VS = 0 − (−0.7) = 0.7 V$$
+
+Now,
+
+$$VICM(max) = VD + VT$$
+
+Substituting:
+
+$$VICM(max) = 0 + 0.36$$
+
+$$VICM(max) = 0.36 V$$
+
+Final Range
+
+$$−0.34 V ≤ VICM ≤ 0.36 V$$
+
+ ## 4. Output Common Mode Range
+
+The output common mode voltage range ensures that all transistors remain in saturation.
+
+Maximum Output Voltage:
+
+$$VOCM(max) <= VDD$$
+$$VOCM(max) = 0.9 V$$
+
+### 4.1 Minimum Output Voltage:
+
+Condition: VDS >= VOV
+
+$$VDS = VD - VS$$
+
+At saturation limit:
+
+$$VD - VS = VOV$$
+
+So,
+
+$$VD = VS + VOV$$
+
+Since VD = VOCM(min):
+
+$$VOCM(min) = VS + VOV$$
+
+Substitute values:
+
+$$VS = -0.7 V$$
+$$VOV = 0.34 V$$
+
+$$VOCM(min) = -0.7 + 0.34$$
+$$VOCM(min) = -0.36 V$$
+
+Final Range:
+
+$$-0.36 V <= VOCM <= 0.9 V$$
+
+## 5. Differential Input Voltage Range (Linear Region)
+
+The differential amplifier operates linearly only when both transistors remain in saturation and the current is nearly equally shared.
+
+Condition for linear operation:
+
+$$|Vid| <= 2 * VOV$$
+
+Substituting value:
+
+$$VOV = 0.34 V$$
+
+$$|Vid| <= 2 * 0.34$$
+
+$$|Vid| <= 0.68 V$$
+
+Final Range:
+
+$$-0.68 V <= Vid <= 0.68 V$$
+
+## 6. Transient Analysis and Linearity Observation
+
+The linear behavior of the differential amplifier is verified using transient analysis.
+
+Condition for Linearity
+
+$$|Vid| < 2 * VOV$$
+
+Using a refined condition:
+
+$$2 * VOV ≈ 1.414 * VOV$$
+
+Substituting value:
+
+$$VOV = 0.34 V$$
+
+$$2 * VOV ≈ 1.414 * 0.34$$
+
+$$2 * VOV ≈ 0.48 V$$
+
+* ### Case 1: Linear Region
+
+Input applied:
+
+$$Vid = 200 mV$$
+
+Since:
+
+$$200 mV < 0.48 V$$
+
+The amplifier operates in the linear region.
+
+<img width="1910" height="921" alt="image" src="https://github.com/user-attachments/assets/27498cc9-4c7b-4319-9a4d-2b21652174d5" />
+
+* ### Case 2: Non-Linear Region
+
+Input applied:
+
+$$Vid = 700 mV$$
+
+Since:
+
+$$700 mV > 0.48 V$$
+
+The amplifier operates in the non-linear region.
+
+<img width="1907" height="912" alt="image" src="https://github.com/user-attachments/assets/99169ebc-01e3-416e-9c84-5a1d17f1399f" />
+
+## 7. Comparison of Linear and Non-Linear Operation
+
+| Parameter              | Case 1: Linear Region | Case 2: Non-Linear Region |
+|------------------------|----------------------|----------------------------|
+| Condition              | Vid < 2 * VOV        | Vid > 2 * VOV              |
+| Input (Vid)            | 200 mV               | 700 mV                     |
+| Output waveform        | Sinusoidal           | Distorted / Clipped        |
+| Gain                   | Constant             | Reduced / Non-linear       |
+| Transistor operation   | Both in saturation   | One enters cutoff          |
+| Current distribution   | Equal sharing        | Current shifts to one side |
+
+## 8. Theoretical Gain
+
+
+Assume channel length modulation:
+
+$$λ = 0.1 V⁻¹$$
+
+### 8.1 Output Resistance
+
+The output resistance of each MOSFET is:
+
+$$ro = 1 / (λ × ID)$$
+
+Substituting values:
+
+$$ID = 0.416 mA = 0.416 × 10⁻³ A$$
+
+$$ro = 1 / (0.1 × 0.416 × 10⁻³)$$
+
+$$ro = 24 kΩ$$
+
+### 8.2 Effective Output Resistance
+
+Since two transistors are present:
+
+$$ro_eff = ro1 || ro2$$
+
+$$ro_eff = 24 kΩ || 24 kΩ$$
+
+$$ro_eff = 12 kΩ$$
+
+### 8.3 Transconductance
+
+$$gm = (2 × ID) / VOV$$
+
+$$gm = (2 × 0.416 × 10⁻³) / 0.34$$
+
+$$gm ≈ 2.44 mS$$
+
+### 8.4 Total Output Resistance
+
+$$Rout = RD || ro_eff$$
+
+$$Rout = 2.163 kΩ || 12 kΩ$$
+
+$$Rout ≈ 1.83 kΩ$$
+
+Final Values
+
+$$ro = 24 kΩ$$
+$$ro_eff = 12 kΩ$$
+$$gm ≈ 2.44 mS$$
+$$Rout ≈ 1.83 kΩ$$
+
+## 9. Simulated Gain
+
+### 9.1 Input Signal Parameters
+
+Measured Peak-to-Peak Values
+
+$$Vin(p-p) = 100 mV − (−100 mV) = 200 mV$$
+
+$$Vout(p-p) = 350 mV − (−350 mV) = 1.03 V$$
+
+Voltage Gain
+
+$$Av = Vout(p-p) / Vin(p-p)$$
+
+$$Av = (1.03) / (200 × 10^-3)$$
+
+$$Av = 5.15 V/V$$
+
+### 9.2 Gain in dB
+
+$$Av(dB) = 20 log10(Av)$$
+
+$$Av(dB) = 20 log10(5.15)$$
+
+$$Av(dB) = 14.23 dB$$
+
+## 10. Differential Gain
+
+Ad = gm × Rout
+
+Ad = 2.44 × 10^-3 × 1.83 × 10^3
+
+Ad ≈ 4.47
+
+### 10.1 Gain in dB
+
+Ad(dB) = 20 log10(Ad)
+
+Ad(dB) = 20 log10(4.47)
+
+Ad(dB) ≈ 13 dB
+
+## 11. AC Analysis:
+
+<img width="1915" height="922" alt="image" src="https://github.com/user-attachments/assets/9132b14e-c30b-46d8-93e7-b7b01f7ee6a3" />
+
+### 11.1 Midband Gain
+
+From AC simulation:
+
+$$Av = 16.152 dB$$
+
+−3 dB Gain
+
+$$Av − 3 =16.152  − 3$$
+
+$$Av − 3 = 13.152 dB$$
+
+### 11.2 Cutoff Frequencies
+
+Lower cutoff frequency:
+
+fL = 0 Hz
+
+* Upper cutoff frequency:
+
+fH = 5.594 GHz
+
+* Bandwidth
+
+Bandwidth is defined as:
+
+BW = fH − fL
+
+BW = 5.594 − 0
+
+BW = 5.594 GHz
+
+## 12. Unity Gain Bandwidth (UGB)
+
+Since the 0 dB crossing point is not visible in the AC plot, the unity gain bandwidth cannot be measured directly.
+
+So, it is estimated using the relation:
+
+UGB = Av × BW
+
+Substituting Values
+
+Av = 5.15
+BW = 5.627 GHz
+
+UGB =  5.15 × 5.627 GHz
+
+UGB = 28.106 GHz
+
+## 13. Inference: 
+
+The MOS differential amplifier with a resistive load successfully amplifies the difference between two input signals while rejecting common-mode noise. The circuit operates properly when both transistors remain in saturation, ensuring stable biasing and linear amplification.
+
+From the analysis, it is observed that for small differential input voltages, the amplifier behaves linearly with constant gain. As the input increases beyond the linear range, the circuit enters the non-linear region, leading to distortion and unequal current distribution.
+
+The gain of the amplifier depends on the transconductance (gm) and the load resistance (RD). Due to the presence of channel length modulation, the output resistance also affects the overall gain.
+
+The simulated results closely match the theoretical calculations, with slight variations due to non-ideal effects. The amplifier exhibits a reasonable bandwidth and unity gain bandwidth, making it suitable for analog signal processing applications.
+
+
 
 
 
