@@ -126,7 +126,7 @@ So,
 
 $$VG1 = VG2 = 0 V$$
 
-Source Voltage
+* #### Source Voltage
 
 Given:
 
@@ -138,7 +138,7 @@ $$VS = Vp$$
 
 $$VS = −0.7 V$$
 
-#### Gate-Source Voltage
+* #### Gate-Source Voltage
 
 $$VGS = VG − VS$$
 
@@ -146,7 +146,7 @@ $$VGS = 0 − (−0.7)$$
 
 $$VGS = 0.7 V$$
 
-#### Overdrive Voltage
+* #### Overdrive Voltage
 
 Given:
 
@@ -158,7 +158,7 @@ $$VOV = 0.7 − 0.36$$
 
 $$VOV = 0.34 V$$
 
-#### Drain Voltage
+* #### Drain Voltage
 
 From previous result:
 
@@ -168,7 +168,7 @@ So,
 
 $$VD = 0 V$$
 
-#### Drain-Source Voltage
+* #### Drain-Source Voltage
 
 $$VDS = VD − VS$$
 
