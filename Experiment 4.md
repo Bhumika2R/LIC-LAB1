@@ -22,17 +22,17 @@ The overall gain of the amplifier depends on the transconductance gm of the MOSF
  
 # COMPONENTS USED:
 
-Q1 & Q2 (NMOS Transistors):These form the differential pair and are responsible for amplifying the difference between the two input voltages.
+* Q1 & Q2 (NMOS Transistors):These form the differential pair and are responsible for amplifying the difference between the two input voltages.
 
-I_bias (Current Source): This provides a constant tail current to the differential pair, ensuring proper operation. It sets the total current available for both transistors and controls the amplifier’s gain and biasing.
+* I_bias (Current Source): This provides a constant tail current to the differential pair, ensuring proper operation. It sets the total current available for both transistors and controls the amplifier’s gain and biasing.
 
-R1 & R2 (Load Resistors): These resistors convert the drain currents of Q1 and Q2 into voltage signals.
+* R1 & R2 (Load Resistors): These resistors convert the drain currents of Q1 and Q2 into voltage signals.
 
-+V (Supply Voltage): Provides the necessary power for the circuit.
+* +V (Supply Voltage): Provides the necessary power for the circuit.
 
-Vin1 & Vin2 (Differential Inputs): These are the input signals applied to the gates of Q1 and Q2.
+* Vin1 & Vin2 (Differential Inputs): These are the input signals applied to the gates of Q1 and Q2.
 
-Vout1 & Vout2 (Differential Outputs): The output is taken from the drains of Q1 and Q2. The differential output is Vout = Vout1 - Vout2.
+* Vout1 & Vout2 (Differential Outputs): The output is taken from the drains of Q1 and Q2. The differential output is Vout = Vout1 - Vout2.
 
 ## Design Specification : 
 
