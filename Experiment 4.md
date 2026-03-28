@@ -226,9 +226,10 @@ $$W ≈ 11.235 μm$$
  <img width="1910" height="847" alt="image" src="https://github.com/user-attachments/assets/5a15f523-7bf2-415f-b5bf-56578fbc08ff" />
 
 
+
 By varying width:
 
-W1 = W2 =19.978 µm → Id = 0.416 mA
+* ### W1 = W2 =19.978 µm → Id = 0.416 mA
 
 ## 3. Input Common Mode Range (ICMR):
 
