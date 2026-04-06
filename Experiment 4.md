@@ -564,6 +564,261 @@ The gain of the amplifier depends on the transconductance (gm) and the load resi
 The simulated results closely match the theoretical calculations, with slight variations due to non-ideal effects. The amplifier exhibits a reasonable bandwidth and unity gain bandwidth, making it suitable for analog signal processing applications.
 
 
+# Circuit 2: Differential Amplifier with PMOS active load and an NMOS current source
+
+# 1. Circuit diagram :
+
+## Circuit Analysis:
+
+### 1.1 Calculation of Tail Current (ISS):
+
+The tail current is calculated using the power relation:
+
+The tail current is calculated using the power relation:
+
+$$P = (VDD − VSS) × ISS$$
+
+Substitute the given values:
+
+$$1.5 mW = (0.9 V − (−0.9 V)) × ISS$$
+
+$$1.5 mW = 1.8 V × ISS$$
+
+Now solve for ISS:
+
+$$ISS = 1.5 mW / 1.8 V$$
+
+$$ISS = 0.833 mA$$
+
+### 1.2 Drain Current Calculation
+
+Under balanced input conditions:
+
+$$Vin1 = Vin2$$
+
+The differential amplifier operates symmetrically, and the tail current splits equally between the two transistors.
+
+$$ID1 = ID2 = ISS / 2$$
+
+Substituting the value:
+
+$$ID1 = ID2 = 0.833 mA / 2$$
+
+$$ID1 = ID2 = 0.416 mA$$
+
+### 1.3 Load Resistance Calculation
+
+Given:
+
+$$VOCM = 0 V$$
+
+So,
+
+$$Vout1 = Vout2 = 0 V$$
+
+The output voltage equation is:
+
+$$Vout = VDD − ID × RD$$
+
+Substituting the values:
+
+$$0 = 0.9 − ID × RD$$
+
+$$ID × RD = 0.9$$
+
+Solving for RD:
+
+$$RD = 0.9 / ID$$
+
+Substituting ID =0.416 mA:
+
+$$RD = 0.9 / (0.416 × 10⁻³)$$
+
+$$RD = 2.163 kΩ$$
+
+### 1.4 Bias Point Calculation
+
+Given:
+
+$$Vin,CM = 0 V$$
+
+So,
+
+$$VG1 = VG2 = 0 V$$
+
+* #### Source Voltage
+
+Given:
+
+$$Vp = −0.7 V$$
+
+Assuming:
+
+$$VS = Vp$$
+
+$$VS = −0.7 V$$
+
+* #### Gate-Source Voltage
+
+$$VGS = VG − VS$$
+
+$$VGS = 0 − (−0.7)$$
+
+$$VGS = 0.7 V$$
+
+* #### Overdrive Voltage
+
+Given:
+
+$$VT ≈ 0.36 V$$
+
+$$VOV = VGS − VT$$
+
+$$VOV = 0.7 − 0.36$$
+
+$$VOV = 0.34 V$$
+
+* #### Drain Voltage
+
+From previous result:
+
+$$Vout1 = Vout2 = 0 V$$
+
+So,
+
+$$VD = 0 V$$
+
+* #### Drain-Source Voltage
+
+$$VDS = VD − VS$$
+
+$$VDS = 0 − (−0.7)$$
+
+$$VDS = 0.7 V$$
+
+Saturation Condition Check
+
+Condition:
+
+$$VDS > VOV$$
+
+$$0.7 > 0.34$$
+
+Hence, both transistors operate in saturation region.
+
+* #### NMOS Current Source (M5)
+
+Given:
+Source voltage: VS = VSS = -0.9 V
+Drain voltage: VD = Vp = -0.7 V
+
+Drain-Source Voltage:
+VDS = VD - VS
+VDS = -0.7 - (-0.9)
+VDS = 0.2 V
+
+Saturation Condition:
+For NMOS to operate in saturation:
+VDS >= VOV
+
+So,
+0.2 >= VOV
+
+* #### Choosing Overdrive Voltage:
+  
+To ensure saturation while maximizing current:
+VOV ≈ 0.2 V
+
+Gate-Source Voltage:
+VGS = VT + VOV
+VGS = 0.36 + 0.2
+VGS = 0.56 V
+
+Gate Voltage:
+VG = VS + VGS
+VG = -0.9 + 0.56
+VG = -0.34 V
+
+Saturation Check:
+VDS >= VOV
+0.2 >= 0.2
+
+Thus, M5 operates at the edge of saturation and provides the required tail current.
+
+* #### PMOS Active Load (M3 and M4)
+
+For PMOS:
+
+Source is connected to:
+VDD = 0.9 V
+
+Drain is at:
+VD = 0 V
+
+Source-Drain Voltage:
+VSD = VDD - VD
+VSD = 0.9 - 0
+VSD = 0.9 V
+
+Saturation Condition:
+For PMOS to operate in saturation:
+VSD > VOV
+
+So,
+0.9 > VOV
+
+Conclusion for M3 and M4:
+Since VSD (0.9 V) exceeds the required overdrive voltage, both PMOS transistors operate in saturation.
+
+## 1.5 Width Calculation:
+
+
+The drain current in saturation is given by:
+
+$$ID = (1/2) × μnCox × (W/L) × (VOV)²$$
+
+Rearranging to find width:
+
+$$W = (2 × ID × L) / (μnCox × (VOV)²)$$
+
+Substituting Values
+
+$$ID = 0.416 mA = 0.416 × 10⁻³ A$$
+$$L = 360 nm = 360 × 10⁻⁹ m$$
+$$μnCox = 230.6 μA/V² = 2.306 × 10⁻⁴$$
+$$VOV = 0.34 V$$
+
+Calculation
+
+$$W = (2 × 0.416 × 10⁻³ × 360 × 10⁻⁹) / (2.306 × 10⁻⁴ × (0.34)²)$$
+
+$$W = (299.52 × 10⁻¹²) / (2.306 × 10⁻⁴ × 0.1156)$$
+
+$$W = (299.52 × 10⁻¹²) / (2.266 × 10⁻⁵)$$
+
+$$W ≈ 11.235 μm$$
+
+## NMOS Current Source (M5)
+
+From previous calculations:
+
+$$ID = ISS = 0.833 mA = 0.833 × 10⁻³ A$$
+
+$$VOV₅ = 0.2 V$$
+
+Substituting:
+
+$$W = (2 ×  0.833 × 10⁻³ × 360 × 10⁻⁹) / (2.365 × 10⁻⁴ × (0.2)²)$$
+
+$$W = (5.99 ×10⁻¹⁰) / (2.365 × 10⁻⁴ × 0.04)$$
+
+$$W = (5.99 ×10⁻¹⁰) / (9.46 × 10⁻⁶)$$
+
+$$W ≈ 63.3 μm$$
+
+
+
+
 
 
 
