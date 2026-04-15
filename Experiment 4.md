@@ -486,19 +486,19 @@ $$Av(dB) = 14.23 dB$$
 
 ## 10. Differential Gain
 
-Ad = gm × Rout
+$$Ad = gm × Rout$$
 
-Ad = 2.44 × 10^-3 × 1.83 × 10^3
+$$Ad = 2.44 × 10^-3 × 1.83 × 10^3$$
 
-Ad ≈ 4.47
+$$Ad ≈ 4.47$$
 
 ### 10.1 Gain in dB
 
-Ad(dB) = 20 log10(Ad)
+$$Ad(dB) = 20 log10(Ad)$$
 
-Ad(dB) = 20 log10(4.47)
+$$Ad(dB) = 20 log10(4.47)$$
 
-Ad(dB) ≈ 13 dB
+$$Ad(dB) ≈ 13 dB$$
 
 ## 11. AC Analysis:
 
@@ -520,21 +520,21 @@ $$Av − 3 = 13.152 dB$$
 
 Lower cutoff frequency:
 
-fL = 0 Hz
+$$fL = 0 Hz$$
 
 * Upper cutoff frequency:
 
-fH = 5.594 GHz
+$$fH = 5.594 GHz$$
 
 * Bandwidth
 
 Bandwidth is defined as:
 
-BW = fH − fL
+$$BW = fH − fL$$
 
-BW = 5.594 − 0
+$$BW = 5.594 − 0$$
 
-BW = 5.594 GHz
+$$BW = 5.594 GHz$$
 
 ## 12. Unity Gain Bandwidth (UGB)
 
@@ -542,16 +542,16 @@ Since the 0 dB crossing point is not visible in the AC plot, the unity gain band
 
 So, it is estimated using the relation:
 
-UGB = Av × BW
+$$UGB = Av × BW$$
 
 Substituting Values
 
-Av = 5.15
-BW = 5.627 GHz
+$$Av = 5.15$$
+$$BW = 5.627 GHz$$
 
-UGB =  5.15 × 5.627 GHz
+$$UGB =  5.15 × 5.627 GHz$$
 
-UGB = 28.106 GHz
+$$UGB = 28.106 GHz$$
 
 ## 13. Inference: 
 
@@ -567,6 +567,9 @@ The simulated results closely match the theoretical calculations, with slight va
 # Circuit 2: Differential Amplifier with PMOS active load and an NMOS current source
 
 # 1. Circuit diagram :
+
+<img width="1005" height="825" alt="image" src="https://github.com/user-attachments/assets/61ad0e14-d848-4772-916c-420e4a04cbfb" />
+
 
 ## Circuit Analysis:
 
@@ -709,39 +712,56 @@ Hence, both transistors operate in saturation region.
 * #### NMOS Current Source (M5)
 
 Given:
-Source voltage: VS = VSS = -0.9 V
-Drain voltage: VD = Vp = -0.7 V
+
+Source voltage: 
+
+$$VS = VSS = -0.9 V$$
+Drain voltage: 
+
+$$VD = Vp = -0.7 V$$
 
 Drain-Source Voltage:
-VDS = VD - VS
-VDS = -0.7 - (-0.9)
-VDS = 0.2 V
+$$VDS = VD - VS$$
+
+$$VDS = -0.7 - (-0.9)$$
+
+$$VDS = 0.2 V$$
 
 Saturation Condition:
 For NMOS to operate in saturation:
-VDS >= VOV
+
+$$VDS >= VOV$$
 
 So,
-0.2 >= VOV
+$$0.2 >= VOV$$
 
 * #### Choosing Overdrive Voltage:
   
 To ensure saturation while maximizing current:
-VOV ≈ 0.2 V
+
+$$VOV ≈ 0.2 V$$
 
 Gate-Source Voltage:
-VGS = VT + VOV
-VGS = 0.36 + 0.2
-VGS = 0.56 V
+
+$$VGS = VT + VOV$$
+
+$$VGS = 0.36 + 0.2$$
+
+$$VGS = 0.56 V$$
 
 Gate Voltage:
-VG = VS + VGS
-VG = -0.9 + 0.56
-VG = -0.34 V
+
+$$VG = VS + VGS$$
+
+$$VG = -0.9 + 0.56$$
+
+$$VG = -0.34 V$$
 
 Saturation Check:
-VDS >= VOV
-0.2 >= 0.2
+
+$$VDS >= VOV$$
+
+$$0.2 >= 0.2$$
 
 Thus, M5 operates at the edge of saturation and provides the required tail current.
 
@@ -750,22 +770,29 @@ Thus, M5 operates at the edge of saturation and provides the required tail curre
 For PMOS:
 
 Source is connected to:
-VDD = 0.9 V
+
+$$VDD = 0.9 V$$
 
 Drain is at:
-VD = 0 V
+
+$$VD = 0 V$$
 
 Source-Drain Voltage:
-VSD = VDD - VD
-VSD = 0.9 - 0
-VSD = 0.9 V
+
+$$VSD = VDD - VD$$
+
+$$VSD = 0.9 - 0$$
+
+$$VSD = 0.9 V$$
+
 
 Saturation Condition:
 For PMOS to operate in saturation:
-VSD > VOV
+
+$$VSD > VOV$$
 
 So,
-0.9 > VOV
+$$0.9 > VOV$$
 
 Conclusion for M3 and M4:
 Since VSD (0.9 V) exceeds the required overdrive voltage, both PMOS transistors operate in saturation.
@@ -788,7 +815,7 @@ $$L = 360 nm = 360 × 10⁻⁹ m$$
 $$μnCox = 230.6 μA/V² = 2.306 × 10⁻⁴$$
 $$VOV = 0.34 V$$
 
-Calculation
+#### Calculation
 
 $$W = (2 × 0.416 × 10⁻³ × 360 × 10⁻⁹) / (2.306 × 10⁻⁴ × (0.34)²)$$
 
@@ -815,6 +842,388 @@ $$W = (5.99 ×10⁻¹⁰) / (2.365 × 10⁻⁴ × 0.04)$$
 $$W = (5.99 ×10⁻¹⁰) / (9.46 × 10⁻⁶)$$
 
 $$W ≈ 63.3 μm$$
+
+## PMOS Current Source (M3 and M4)
+
+$$ID = (1/2) × μnCox × (W/L) × (VOV)²$$
+
+$$W = (2 × ID × L) / (μpCox × (VOV)²)$$
+
+$$W = (2 × 0.4165 × 10^-3 × 360 × 10^-9) / (9.754 × 10^-4 × (0.51)²)$$
+
+$$W = 11.82 × 10^-6 m = 11.82 µm$$
+
+# 2. DC Analysis:
+
+<img width="1756" height="820" alt="image" src="https://github.com/user-attachments/assets/c8410f4d-cf58-4635-83f7-161852859c6c" />
+
+# 3. Input Common Mode Range (ICMR):
+
+Input Common Mode Range (ICMR)
+
+The input common-mode range is the range of input voltage over which all transistors in the differential amplifier remain in saturation and operate properly.
+
+## 3.1 Minimum Input Common Mode Voltage
+
+For proper operation, the NMOS transistors must remain ON:
+
+Condition:
+
+$$VGS ≥ VT$$
+
+We know:
+
+$$VGS = VICM − VS$$
+
+So,
+
+$$VICM(min) = VS + VT$$
+
+Substituting values:
+
+$$VS = -0.7 V$$
+
+$$VT = 0.36 V$$
+
+$$VICM(min) = -0.7 + 0.36$$
+
+$$VICM(min) = -0.34 V$$
+
+## 3.2 Maximum Input Common Mode Voltage
+
+To keep the transistors in saturation:
+
+Condition:
+
+$$VDS ≥ VOV$$
+
+Given:
+
+$$VD = 0 V$$
+
+$$VS = -0.7 V$$
+
+$$VSD = VD − VS = 0 − (-0.7) = 0.7 V$$
+
+Now,
+
+$$VICM(max) = VD + VTP$$
+
+Substituting:
+
+$$VICM(max) = 0 + 0.39$$
+
+$$VICM(max) = 0.39 V$$
+
+Final Range:
+
+$$-0.34 V ≤ VICM ≤ 0.39 V$$
+
+# 4. Output Common Mode Range (OCMR):
+
+The output common-mode range is defined as the range of output voltage for which all transistors remain in saturation.
+
+## Minimum Output Common Mode Voltage
+
+For minimum output voltage, the NMOS input transistors (M1 and M2) must remain in saturation.
+
+Condition:
+
+$$VDS1 ≥ VOV$$
+
+Using:
+
+$$VDS1 = Vout − VS$$
+
+So,
+$$Vout(min) − VS ≥ VOV$$
+
+$$Vout(min) ≥ VS + VOV$$
+
+Substituting:
+
+$$VS = -0.7 V$$
+
+$$VOV = 0.34 V$$
+
+$$Vout(min) = -0.7 + 0.34$$
+
+$$Vout(min) = -0.36 V$$
+
+## Maximum Output Common Mode Voltage
+
+For maximum output voltage, the PMOS load transistors (M3 and M4) must remain in saturation.
+
+Condition:
+
+$$VSD ≥ VOVp$$
+
+Using:
+$$VSD = VDD − Vout$$
+
+So,
+$$VDD − Vout(max) ≥ VOVp$$
+
+$$Vout(max) ≤ VDD − VOVp$$
+
+Substituting:
+$$VDD = 0.9 V$$
+$$VOVp ≈ 0.25 V$$
+
+$$Vout(max) = 0.9 − 0.25$$
+
+$$Vout(max) = 0.65 V$$
+
+Final Output Common Mode Range
+
+$$-0.36 V ≤ Vout ≤ 0.65 V$$
+
+# 5. Differential Input Voltage Range (Linear Region)
+
+The differential amplifier operates linearly only when both transistors remain in saturation and the current is nearly equally shared.
+
+Condition for Linear Operation:
+
+$$|Vid| ≤ 2 × VOV$$
+
+Substituting value:
+$$VOV = 0.34 V$$
+
+$$|Vid| ≤ 2 × 0.25$$
+
+$$|Vid| ≤ 0.5 V$$
+
+Final Range:
+
+$$-0.5 V ≤ Vid ≤ 0.5 V$$
+
+# 6. Transient Analysis and Linearity Observation
+
+The linear behavior of the differential amplifier is verified using transient analysis.
+
+Condition for Linearity:
+
+$$|Vid| < √2 × VOV$$
+
+Using a refined condition:
+
+$$√2 × VOV ≈ 1.414 × VOV$$
+
+Substituting value:
+
+$$VOV = 0.25 V$$
+
+$$√2 × VOV ≈ 1.414 × 0.25$$
+
+$$√2 × VOV ≈ 0.34 V$$
+
+* ## Case 1: Linear Region:
+
+**Input applied:**
+
+$$Vid = 200 mV$$
+
+Since:
+
+$$200 mV < 0.34 V$$
+
+The amplifier operates in the linear region.
+
+
+<img width="1913" height="913" alt="image" src="https://github.com/user-attachments/assets/24ef8d3b-2971-4f70-87b7-ef98f39fe607" />
+
+* ## Case 2: Non-Linear Region:
+
+**Input applied:**
+
+$$Vid = 700 mV$$
+
+Since:
+
+$$700 mV > 0.34 V$$
+
+The amplifier operates in the non-linear region.
+
+<img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/3d858b45-7071-457b-95b2-220fcb132e82" />
+
+
+# 7. Comparison Table:
+
+| Parameter            | Case 1: Linear Region  | Case 2: Non-Linear Region   |
+| -------------------- | ---------------------- | --------------------------- |
+| Condition            | Vid < √2  × VOV          | Vid > √2 × VOV               |
+| Input (Vid)          | 200 mV                 | 700 mV                      |
+| Output waveform      | Sinusoidal             | Distorted / Clipped         |
+| Gain                 | Constant               | Reduced / Non-linear        |
+| Transistor operation | All in saturation      | One NMOS in cutoff          |
+| Current distribution | Shared between M1 & M2 | Current flows in one branch |
+
+# 8. Theoretical Gain
+
+Assume channel length modulation:
+
+$$λ = 0.1 V⁻¹$$
+
+## 8.1 Output Resistance
+
+The output resistance of each MOSFET is:
+
+$$ro = 1 / (λ × ID)$$
+
+Substituting values:
+
+$$ID = 0.416 mA = 0.416 × 10⁻³ A$$
+
+$$ro = 1 / (0.1 × 0.416 × 10⁻³)$$
+
+$$ro = 24 kΩ$$
+
+## 8.2 Effective Output Resistance
+
+Since two transistors are present:
+
+$$ro_eff = ro1 || ro2$$
+
+$$ro_eff = 24 kΩ || 24 kΩ$$
+
+$$ro_eff = 12 kΩ$$
+
+## 8.3 Transconductance
+
+$$gm = (2 × ID) / VOV$$
+
+$$gm = (2 × 0.416 × 10⁻³) / 0.24$$
+
+$$gm ≈ 3.46 mS$$
+
+## 8.4 Total Output Resistance
+
+$$Rout = ro_eff$$
+
+$$Rout =  12 kΩ$$
+
+$$Rout ≈ 12 kΩ$$
+
+
+## 8.4 Differential Gain
+
+$$Ad = gm × Rout$$
+
+$$Ad = 2.44 × 10⁻³ × 12 × 10³$$
+
+$$Ad ≈ 29.28$$
+
+## 8.5 Gain in dB
+
+$$Ad(dB) = 20 log10(Ad)$$
+
+$$Ad(dB) = 20 log10(29.28)$$
+
+$$Ad(dB) ≈ 29.33 dB$$
+
+# 9. Simulated Gain
+
+## 9.1 Input Signal Parameters
+
+Measured Peak-to-Peak Values:
+
+$$Vin(p-p) = 99.95 mV − (−99.92 mV) = 0.199V$$
+
+$$Vout(p-p) = 212.98 mV − (−159.26 mV) ≈ 0.372 V$$
+
+Voltage Gain:
+
+$$Av = Vout(p-p) / Vin(p-p)$$
+
+$$Av = 0.372 / (0.199)$$
+
+$$Av = 1.86 V/V$$
+
+## 9.2 Gain in dB
+
+$$Av(dB) = 20 log10(Av)$$
+
+$$Av(dB) = 20 log10(1.86)$$
+
+$$Av(dB) ≈ 5.39 dB$$
+
+# 10. AC Analysis:
+
+<img width="1912" height="891" alt="image" src="https://github.com/user-attachments/assets/6400859c-bd47-4866-8f5d-e803183e1ef4" />
+
+## 10.1 Midband Gain
+
+From AC simulation:
+
+$$Av =5.637 dB$$
+
+-3 dB Gain:
+
+$$Av - 3 = 5.637 - 3$$
+
+$$Av - 3 = 2.637 dB$$
+
+## 10.2 Cutoff Frequencies
+
+Lower cutoff frequency:
+$$fL = 0 Hz$$
+
+Upper cutoff frequency:
+$$fH = 26.639 MHz$$
+
+Bandwidth
+
+Bandwidth is defined as:
+
+$$BW = fH − fL$$
+
+$$BW = 26.639 − 0$$
+
+$$BW = 26.639 MHz$$
+
+# 11. Unity Gain Bandwidth (UGB)
+Since the 0 dB crossing point is not visible in the AC plot, the unity gain bandwidth cannot be measured directly.
+
+So, it is estimated using the relation:
+
+$$UGB = Av × BW$$
+
+Substituting Values
+
+$$Av = 1.86 BW = 26.639 MHz$$
+
+$$UGB = 1.86 ×  26.639 MHz$$
+
+$$UGB = 49.548 MHz$$
+
+# 12. Inference:
+
+The differential amplifier with a PMOS active load and an NMOS current source achieves good voltage gain due to high output resistance.
+
+It provides stable biasing through the NMOS current source, ensuring proper operation of the circuit.
+
+The PMOS active load improves gain without requiring large resistors.
+
+The amplifier operates linearly only for small differential input voltages.
+
+For larger inputs, one transistor enters cutoff, leading to nonlinearity and distortion.
+
+The output swing is limited by saturation conditions of the transistors.
+
+Overall, it offers a good trade-off between gain, linearity, and power efficiency.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
