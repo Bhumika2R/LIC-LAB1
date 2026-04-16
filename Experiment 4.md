@@ -1213,6 +1213,37 @@ The output swing is limited by saturation conditions of the transistors.
 Overall, it offers a good trade-off between gain, linearity, and power efficiency.
 
 
+# Circuit 3: CMOS Differential Amplifier with PMOS Active Load (Bias-Controlled Load):
+
+# 1. Circuit diagram :
+
+## Circuit Analysis:
+
+### GIVEN PARAMETERS
+
+Technology: TSMC 180 nm
+
+Supply voltage: VDD = +0.9 V
+
+Negative supply: VSS = -0.9 V
+
+Power constraint: P ≤ 1.5 mW
+
+Channel length: Ln = 360 nm
+
+Input common-mode voltage: Vin,CM = 0 V
+
+Output common-mode voltage: Vo,CM = 0 V
+
+Tail node voltage: Vp = -0.7 V
+
+Load capacitance: CL = 10 pF
+
+Threshold voltage: VT ≈ 0.36 V
+
+
+
+
 
 
 
