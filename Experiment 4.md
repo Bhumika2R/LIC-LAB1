@@ -1217,6 +1217,9 @@ Overall, it offers a good trade-off between gain, linearity, and power efficienc
 
 # 1. Circuit diagram :
 
+<img width="943" height="793" alt="image" src="https://github.com/user-attachments/assets/ddd5eb9f-cb06-42b5-9ea8-6ba7da962460" />
+
+
 ## Circuit Analysis:
 
 ### GIVEN PARAMETERS
@@ -1245,186 +1248,233 @@ Threshold voltage: VT ≈ 0.36 V
 
 The tail current is calculated using the power relation:
 
-P = (VDD − VSS) × ISS
+$$P = (VDD − VSS) × ISS$$
 
 Substitute the given values:
 
-1.5 mW = (0.9 V − (−0.9 V)) × ISS
+$$1.5 mW = (0.9 V − (−0.9 V)) × ISS$$
 
-1.5 mW = 1.8 V × ISS
+$$1.5 mW = 1.8 V × ISS$$
 
 Now solve for ISS:
 
-ISS = 1.5 mW / 1.8 V
+$$ISS = 1.5 mW / 1.8 V$$
 
-ISS = 0.833 mA
+$$ISS = 0.833 mA$$
 
 ## 1.2 Drain Current Calculation
 
 Under balanced input conditions:
 
-Vin1 = Vin2
+$$Vin1 = Vin2$$
 
 The differential amplifier operates symmetrically, and the tail current splits equally between the two transistors.
 
-ID1 = ID2 = ISS / 2
+$$ID1 = ID2 = ISS / 2$$
 
 Substituting the value:
 
-ID1 = ID2 = 0.833 mA / 2
+$$ID1 = ID2 = 0.833 mA / 2$$
 
-ID1 = ID2 = 0.416 mA
+$$ID1 = ID2 = 0.416 mA$$
 
 ## 1.3 Bias Point Calculation
 
 Given:
-Vin,CM = 0 V
+$$Vin,CM = 0 V$$
 
 So,
-VG1 = VG2 = 0 V
+$$VG1 = VG2 = 0 V$$
 
 Source Voltage:
 
 Given:
-Vp = -0.7 V
+$$Vp = -0.7 V$$
 
 Assuming:
-VS = Vp
+$$VS = Vp$$
 
-VS = -0.7 V
+$$VS = -0.7 V$$
 
 Gate-Source Voltage:
 
-VGS = VG − VS
+$$VGS = VG − VS$$
 
-VGS = 0 − (−0.7)
+$$VGS = 0 − (−0.7)$$
 
-VGS = 0.7 V
+$$VGS = 0.7 V$$
 
 Overdrive Voltage:
 
 Given:
-VT ≈ 0.36 V
+$$VT ≈ 0.36 V$$
 
-VOV = VGS − VT
+$$VOV = VGS − VT$$
 
-VOV = 0.7 − 0.36
+$$VOV = 0.7 − 0.36$$
 
-VOV = 0.34 V
+$$VOV = 0.34 V$$
 
 Drain Voltage:
 
 From previous result:
-Vout1 = Vout2 = 0 V
+$$Vout1 = Vout2 = 0 V$$
 
 So,
-VD = 0 V
+$$VD = 0 V$$
 
 Drain-Source Voltage:
 
-VDS = VD − VS
+$$VDS = VD − VS$$
 
-VDS = 0 − (−0.7)
+$$VDS = 0 − (−0.7)$$
 
-VDS = 0.7 V
+$$VDS = 0.7 V$$
 
 Saturation Condition Check:
 
 Condition:
-VDS > VOV
+$$VDS > VOV$$
 
-0.7 > 0.34
+$$0.7 > 0.34$$
 
 * ### NMOS Current Source (M5)
 
 Given:
 
 Source voltage:
-VS = VSS = -0.9 V
+$$VS = VSS = -0.9 V$$
 
 Drain voltage:
-VD = Vp = -0.7 V
+$$VD = Vp = -0.7 V$$
 
 Drain-Source Voltage:
 
-VDS = VD − VS
+$$VDS = VD − VS$$
 
-VDS = -0.7 − (-0.9)
+$$VDS = -0.7 − (-0.9)$$
 
-VDS = 0.2 V
+$$VDS = 0.2 V$$
 
 Saturation Condition:
 
 For NMOS to operate in saturation:
 
-VDS ≥ VOV
+$$VDS ≥ VOV$$
 
 So,
-0.2 ≥ VOV
+$$0.2 ≥ VOV$$
 
 Choosing Overdrive Voltage:
 
 To ensure saturation while maximizing current:
 
-VOV ≈ 0.17 V
+$$VOV ≈ 0.17 V$$
 
 Gate-Source Voltage:
 
-VGS = VT + VOV
+$$VGS = VT + VOV$$
 
-VGS = 0.36 + 0.17
+$$VGS = 0.36 + 0.17$$
 
-VGS = 0.53 V
+$$VGS = 0.53 V$$
 
 Gate Voltage:
 
-VG = VS + VGS
+$$VG = VS + VGS$$
 
-VG = -0.9 + 0.53
+$$VG = -0.9 + 0.53$$
 
-VG = -0.37 V
+$$VG = -0.37 V$$
 
 Saturation Check:
 
-VDS ≥ VOV
+$$VDS ≥ VOV$$
 
-0.2 ≥ 0.17
+$$0.2 ≥ 0.17$$
 
 * ### PMOS Active Load (M3 and M4)
 
 For PMOS:
 
 Source is connected to:
-VS = VDD = 0.9 V
+$$VS = VDD = 0.9 V$$
 
 Drain is at:
-VD = Vout = 0 V
+$$VD = Vout = 0 V$$
 
 Gate is connected to bias voltage:
-VG = Vb2
+$$VG = Vb2$$
 
-VGS4 = Vth,p + VOV4
+$$VGS4 = Vth,p + VOV4$$
 
-VGS4 = 0.39 V + 0.21 V
+$$VGS4 = 0.39 V + 0.21 V$$
 
-VGS4 = 0.60 V
+$$VGS4 = 0.60 V$$
 
-VB2 = VDD − VGS4
+$$VB2 = VDD − VGS4$$
 
-VB2 = 0.9 V − 0.60 V
+$$VB2 = 0.9 V − 0.60 V$$
 
-VB2 = 0.30 V
+$$VB2 = 0.30 V$$
 
 ## 1.4 Width Calculation:
 
 The drain current in saturation is given by:
 
-ID = (1/2) × μCox × (W/L) × (VOV)²
+$$ID = (1/2) × μCox × (W/L) × (VOV)²$$
 
 Rearranging:
 
-W = (2 × ID × L) / (μCox × (VOV)²)
+$$W = (2 × ID × L) / (μCox × (VOV)²)$$
 
+* ### NMOS Differential Pair (M1 and M2)
+
+$$ID = 0.416 mA = 0.416 × 10⁻³ A$$
+
+$$L = 360 nm = 360 × 10⁻⁹ m$$
+
+$$μnCox = 230.6 μA/V² = 2.306 × 10⁻⁴$$
+
+$$VOV = 0.34 V$$
+
+Calculation:
+
+$$W = (2 × 0.416 × 10⁻³ × 360 × 10⁻⁹) / (2.306 × 10⁻⁴ × (0.34)²)$$
+
+$$W = (299.52 × 10⁻¹²) / (2.306 × 10⁻⁴ × 0.1156)$$
+
+$$W = (299.52 × 10⁻¹²) / (2.266 × 10⁻⁵)$$
+
+$$W ≈ 11.235 μm$$
+
+* ### NMOS Current Source (M5)
+
+ID = ISS = 0.833 mA = 0.833 × 10⁻³ A
+
+VOV₅ = 0.17 V
+
+Substituting:
+
+W = (2 × 0.833 × 10⁻³ × 360 × 10⁻⁹) / (2.365 × 10⁻⁴ × (0.17)²)
+
+W = (5.99 × 10⁻¹⁰) / (2.365 × 10⁻⁴ × 0.028)
+
+W = (5.99 × 10⁻¹⁰) / (6.622 × 10⁻⁶)
+
+W ≈ 90.45 μm
+
+* ### PMOS Current Source (M3 and M4)
+
+W = (2 × ID × L) / (μpCox × (VOV)²)
+
+W = (2 × 0.4165 × 10⁻³ × 360 × 10⁻⁹) / (9.754 × 10⁻⁴ × (0.21)²)
+
+W = 6.963× 10⁻⁶ m
+
+W = 6.963 µm
+
+# 2. DC Analysis:
 
 
 
