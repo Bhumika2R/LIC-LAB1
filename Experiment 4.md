@@ -1217,7 +1217,8 @@ Overall, it offers a good trade-off between gain, linearity, and power efficienc
 
 # 1. Circuit diagram :
 
-<img width="943" height="793" alt="image" src="https://github.com/user-attachments/assets/ddd5eb9f-cb06-42b5-9ea8-6ba7da962460" />
+<img width="1015" height="827" alt="image" src="https://github.com/user-attachments/assets/990d418c-1fd2-46f2-981b-0bef19fc64c6" />
+
 
 
 ## Circuit Analysis:
@@ -1450,31 +1451,171 @@ $$W ≈ 11.235 μm$$
 
 * ### NMOS Current Source (M5)
 
-ID = ISS = 0.833 mA = 0.833 × 10⁻³ A
+$$ID = ISS = 0.833 mA = 0.833 × 10⁻³ A$$
 
-VOV₅ = 0.17 V
+$$VOV₅ = 0.17 V$$
 
 Substituting:
 
-W = (2 × 0.833 × 10⁻³ × 360 × 10⁻⁹) / (2.365 × 10⁻⁴ × (0.17)²)
+$$W = (2 × 0.833 × 10⁻³ × 360 × 10⁻⁹) / (2.365 × 10⁻⁴ × (0.17)²)$$
 
-W = (5.99 × 10⁻¹⁰) / (2.365 × 10⁻⁴ × 0.028)
+$$W = (5.99 × 10⁻¹⁰) / (2.365 × 10⁻⁴ × 0.028)$$
 
-W = (5.99 × 10⁻¹⁰) / (6.622 × 10⁻⁶)
+$$W = (5.99 × 10⁻¹⁰) / (6.622 × 10⁻⁶)$$
 
-W ≈ 90.45 μm
+$$W ≈ 90.45 μm$$
 
 * ### PMOS Current Source (M3 and M4)
 
-W = (2 × ID × L) / (μpCox × (VOV)²)
+$$W = (2 × ID × L) / (μpCox × (VOV)²)$$
 
-W = (2 × 0.4165 × 10⁻³ × 360 × 10⁻⁹) / (9.754 × 10⁻⁴ × (0.21)²)
+$$W = (2 × 0.4165 × 10⁻³ × 360 × 10⁻⁹) / (9.754 × 10⁻⁴ × (0.21)²)$$
 
-W = 6.963× 10⁻⁶ m
+$$W = 6.963× 10⁻⁶ m$$
 
-W = 6.963 µm
+$$W = 6.963 µm$$
 
 # 2. DC Analysis:
+
+<img width="1871" height="945" alt="image" src="https://github.com/user-attachments/assets/7463e2ed-a028-4ad7-af71-a72c22cacf59" />
+
+# 3. Input Common Mode Range (ICMR):
+
+Input Common Mode Range (ICMR)
+
+The input common-mode range is the range of input voltage over which all transistors in the differential amplifier remain in saturation and operate properly.
+
+## 3.1 Minimum Input Common Mode Voltage
+
+For proper operation, the NMOS transistors must remain ON:
+
+Condition:
+
+$$VGS ≥ VT$$
+
+We know:
+
+$$VGS = VICM − VS$$
+
+So,
+
+$$VICM(min) = VS + VT$$
+
+Substituting values:
+
+$$VS = -0.7 V$$
+
+$$VT = 0.36 V$$
+
+$$VICM(min) = -0.7 + 0.36$$
+
+$$VICM(min) = -0.34 V$$
+
+## 3.2 Maximum Input Common Mode Voltage
+
+To keep the transistors in saturation:
+
+Condition:
+
+VDS ≥ VOV
+
+Given:
+
+VD = 0 V
+VS = -0.7 V
+
+VDS = VD − VS 
+VDS = 0 − (−0.7) 
+VDS= 0.7 V
+
+VOV = 0.7V
+
+VOV = VGS − VT
+
+VGS = VICM − VS
+
+
+VOV = (VICM − VS) − VT
+
+Substituting:
+
+0.7 = (VICM + 0.7) − 0.36
+
+0.7 = VICM + 0.34
+
+VICM(max) = 0.36 V
+
+Final Range:
+
+-0.34 V ≤ VICM ≤ 0.36 V
+
+# 4. Output Common Mode Range (OCMR):
+The output common-mode range is defined as the range of output voltage for which all transistors remain in saturation.
+
+## 4.1 Minimum Output Common Mode Voltage
+
+For minimum output voltage, the NMOS input transistors (M1 and M2) must remain in saturation.
+
+Condition:
+
+VDS1 ≥ VOV
+
+Using:
+
+VDS1 = Vout − VS
+
+So,
+
+Vout(min) − VS ≥ VOV
+
+Vout(min) ≥ VS + VOV
+
+Substituting:
+
+VS = -0.7 V
+VOV = 0.34 V
+
+Vout(min) = -0.7 + 0.34
+
+Vout(min) = -0.36 V
+
+## 4.2 Maximum Output Common Mode Voltage
+
+For maximum output voltage, the PMOS load transistors (M3 and M4) must remain in saturation.
+
+Condition:
+
+VSD ≥ VSG − |VT|
+
+Using:
+
+VSD = VDD − Vout
+
+Also,
+
+VSG = VDD − Vb2
+
+So,
+
+VDD − Vout(max) ≥ (VDD − Vb2) − |VT|
+
+Rearranging:
+
+Vout(max) ≤ Vb2 + |VT|
+
+Substituting:
+
+Vb2 = 0.30 V
+|VT| = 0.39 V
+
+Vout(max) = 0.30 + 0.39
+
+Vout(max) = 0.69 V
+
+Final Output Common Mode Range:
+
+-0.36 V ≤ Vout ≤ 0.69 V
+
 
 
 
