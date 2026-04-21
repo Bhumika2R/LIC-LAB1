@@ -1517,37 +1517,40 @@ To keep the transistors in saturation:
 
 Condition:
 
-VDS ≥ VOV
+$$VDS ≥ VOV$$
 
 Given:
 
-VD = 0 V
-VS = -0.7 V
+$$VD = 0 V$$
 
-VDS = VD − VS 
-VDS = 0 − (−0.7) 
-VDS= 0.7 V
+$$VS = -0.7 V$$
 
-VOV = 0.7V
+$$VDS = VD − VS$$
 
-VOV = VGS − VT
+$$VDS = 0 − (−0.7)$$
 
-VGS = VICM − VS
+$$VDS= 0.7 V$$
+
+$$VOV = 0.7V$$
+
+$$VOV = VGS − VT$$
+
+$$VGS = VICM − VS$$
 
 
-VOV = (VICM − VS) − VT
+$$VOV = (VICM − VS) − VT$$
 
 Substituting:
 
-0.7 = (VICM + 0.7) − 0.36
+$$0.7 = (VICM + 0.7) − 0.36$$
 
-0.7 = VICM + 0.34
+$$0.7 = VICM + 0.34$$
 
-VICM(max) = 0.36 V
+$$VICM(max) = 0.36 V$$
 
 Final Range:
 
--0.34 V ≤ VICM ≤ 0.36 V
+$$-0.34 V ≤ VICM ≤ 0.36 V$$
 
 # 4. Output Common Mode Range (OCMR):
 The output common-mode range is defined as the range of output voltage for which all transistors remain in saturation.
@@ -1558,26 +1561,27 @@ For minimum output voltage, the NMOS input transistors (M1 and M2) must remain i
 
 Condition:
 
-VDS1 ≥ VOV
+$$VDS1 ≥ VOV$$
 
 Using:
 
-VDS1 = Vout − VS
+$$VDS1 = Vout − VS$$
 
 So,
 
-Vout(min) − VS ≥ VOV
+$$Vout(min) − VS ≥ VOV$$
 
-Vout(min) ≥ VS + VOV
+$$Vout(min) ≥ VS + VOV$$
 
 Substituting:
 
-VS = -0.7 V
-VOV = 0.34 V
+$$VS = -0.7 V$$
 
-Vout(min) = -0.7 + 0.34
+$$VOV = 0.34 V$$
 
-Vout(min) = -0.36 V
+$$Vout(min) = -0.7 + 0.34$$
+
+$$Vout(min) = -0.36 V$$
 
 ## 4.2 Maximum Output Common Mode Voltage
 
@@ -1585,36 +1589,105 @@ For maximum output voltage, the PMOS load transistors (M3 and M4) must remain in
 
 Condition:
 
-VSD ≥ VSG − |VT|
+$$VSD ≥ VSG − |VT|$$
 
 Using:
 
-VSD = VDD − Vout
+$$VSD = VDD − Vout$$
 
 Also,
 
-VSG = VDD − Vb2
+$$VSG = VDD − Vb2$$
 
 So,
 
-VDD − Vout(max) ≥ (VDD − Vb2) − |VT|
+$$VDD − Vout(max) ≥ (VDD − Vb2) − |VT|$$
 
 Rearranging:
 
-Vout(max) ≤ Vb2 + |VT|
+$$Vout(max) ≤ Vb2 + |VT|$$
 
 Substituting:
 
-Vb2 = 0.30 V
-|VT| = 0.39 V
+$$Vb2 = 0.30 V$$
 
-Vout(max) = 0.30 + 0.39
+$$|VT| = 0.39 V$$
 
-Vout(max) = 0.69 V
+$$Vout(max) = 0.30 + 0.39$$
+
+$$Vout(max) = 0.69 V$$
 
 Final Output Common Mode Range:
 
--0.36 V ≤ Vout ≤ 0.69 V
+$$-0.36 V ≤ Vout ≤ 0.69 V$$
+
+# 5. Differential Input Voltage Range (Linear Region)
+
+The differential amplifier operates linearly only when both transistors remain in saturation and the current is nearly equally shared.
+
+Condition for Linear Operation:
+
+
+$$|Vid| < √2 × VOV$$
+
+Using a refined condition:
+
+$$√2 × VOV ≈ 1.414 × VOV$$
+
+Substituting value:
+
+$$VOV = 0.34 V$$
+
+$$√2 × VOV ≈ 1.414 × 0.34$$
+
+$$√2 × VOV ≈ 0.48 V$$
+
+* ## Case 1: Linear Region:
+
+Input applied:
+
+$$Vid = 20 mV$$
+
+Since:
+
+$$20 mV < 0.48 V$$
+
+The amplifier operates in the linear region.
+
+<img width="912" height="762" alt="image" src="https://github.com/user-attachments/assets/0e7a53fe-0981-480b-bba4-d4dc8ccc51fe" />
+
+<img width="1902" height="408" alt="image" src="https://github.com/user-attachments/assets/52c35db1-acae-4963-b5bf-5d03307f75e4" />
+
+
+* ## Case 2: Non-Linear Region:
+
+Input applied:
+
+$$Vid = 700 mV$$
+
+Since:
+
+$$700 mV > 0.48 V$$
+
+The amplifier operates in the non-linear region.
+
+<img width="992" height="786" alt="image" src="https://github.com/user-attachments/assets/84655d96-a1e1-433b-91b9-e076b0f016ee" />
+
+<img width="1890" height="412" alt="image" src="https://github.com/user-attachments/assets/fe722240-539f-43a5-8f7b-b18f32074217" />
+
+ # 6. Comparison Table:
+
+| Parameter            | Case 1: Linear Operation      | Case 2: Nonlinear Operation     |
+| -------------------- | ----------------------------- | ------------------------------- |
+| Condition            | Vid < 2 × VOV                 | Vid > 2 × VOV                   |
+| Input (Vid)          | 100 mV                        | 600 mV                          |
+| Output waveform      | Clean sinusoidal              | Distorted / clipped             |
+| Gain                 | Nearly constant               | Reduced and nonlinear           |
+| Transistor operation | All devices in saturation     | One NMOS turns off (cutoff)     |
+| Current distribution | Evenly shared between M1 & M2 | Flows mainly through one branch |
+
+
+
 
 
 
