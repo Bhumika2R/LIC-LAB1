@@ -1109,17 +1109,17 @@ $$Rout ≈ 12 kΩ$$
 
 $$Ad = gm × Rout$$
 
-$$Ad = 2.44 × 10⁻³ × 12 × 10³$$
+$$Ad = 3.46 × 10⁻³ × 12 × 10³$$
 
-$$Ad ≈ 29.28$$
+$$Ad ≈ 41.52$$
 
 ## 8.5 Gain in dB
 
 $$Ad(dB) = 20 log10(Ad)$$
 
-$$Ad(dB) = 20 log10(29.28)$$
+$$Ad(dB) = 20 log10(41.52)$$
 
-$$Ad(dB) ≈ 29.33 dB$$
+$$Ad(dB) ≈ 32.36 dB$$
 
 # 9. Simulated Gain
 
@@ -1685,6 +1685,177 @@ The amplifier operates in the non-linear region.
 | Gain                 | Nearly constant               | Reduced and nonlinear           |
 | Transistor operation | All devices in saturation     | One NMOS turns off (cutoff)     |
 | Current distribution | Evenly shared between M1 & M2 | Flows mainly through one branch |
+
+# 7. Theoretical Gain
+
+Assume channel length modulation:
+
+$$λ = 0.1 V⁻¹$$
+
+## 7.1 Output Resistance
+
+The output resistance of each MOSFET is:
+
+$$ro = 1 / (λ × ID)$$
+
+Substituting values:
+
+$$ID = 0.416 mA = 0.416 × 10⁻³ A$$
+
+$$ro = 1 / (0.1 × 0.416 × 10⁻³)$$
+
+$$ro = 24 kΩ$$
+
+## 7.2 Effective Output Resistance
+
+Since two transistors are present:
+
+$$ro_eff = ron || rop$$
+
+$$ro_eff = 24 kΩ || 24 kΩ$$
+
+$$ro_eff = 12 kΩ$$
+
+## 7.3 Transconductance
+
+$$gm = (2 × ID) / VOV$$
+
+$$gm = (2 × 0.416 × 10⁻³) / 0.24$$
+
+$$gm ≈ 3.46 mS$$
+
+## 7.4 Differential Gain
+
+$$Ad = gm × Rout$$
+
+$$Ad = 3.46 × 10⁻³ × 12 × 10³$$
+
+$$Ad ≈ 41.52$$
+
+## 7.5 Gain in dB
+
+$$Ad(dB) = 20 log10(Ad)$$
+
+$$Ad(dB) = 20 log10(41.52)$$
+
+$$Ad(dB) ≈ 32.36 dB$$
+
+# 8. Simulated Gain
+
+## 8.1 Input Signal Parameters
+
+Measured Peak-to-Peak Values:
+
+$$Vin(p-p) = 9.982 mV − (−9.996 mV) = 19.978 V$$
+
+$$Vout(p-p) = 304.35 mV − (−340.64 mV) ≈ 644.99 V$$
+
+Voltage Gain:
+
+$$Av = Vout(p-p) / Vin(p-p)$$
+
+$$Av = 644.99 m / 19.978 m$$
+
+$$Av = 32.28 V/V$$
+
+## 8.2 Gain in dB
+
+$$Av(dB) = 20 log10(Av)$$
+
+$$Av(dB) = 20 log10(32.28 )$$
+
+$$Av(dB) ≈ 30.17 dB$$
+
+# 9. AC Analysis:
+
+<img width="1902" height="415" alt="image" src="https://github.com/user-attachments/assets/cf5874c2-fc2f-47c3-a7da-119996ca8f4d" />
+
+## 9.1 Midband Gain
+
+From AC simulation:
+
+$$Av = 30.941 dB$$
+
+-3 dB Gain:
+
+$$Av - 3 = 30.941 - 3$$
+
+$$Av - 3 = 27.941 dB$$
+
+## 9.2 Cutoff Frequencies
+
+Lower cutoff frequency:
+
+$$fL = 0 Hz$$
+
+Upper cutoff frequency:
+
+$$fH = 1.470 MHz$$
+
+Bandwidth
+
+Bandwidth is defined as:
+
+$$BW = fH − fL$$
+
+$$BW = 1.470 M − 0$$
+
+$$BW = 1.470 MHz$$
+
+# 10. Unity Gain Bandwidth (UGB)
+
+$$UGB = Av × BW$$
+
+Substituting Values:
+
+$$Av = 32.28$$
+
+$$BW =  51.813 MHz$$
+
+$$UGB = 51.813 × 32.28 MHz$$
+
+$$UGB = 1.67 GHz$$
+
+# 11. Inference:
+
+The CMOS differential amplifier with a PMOS bias-controlled active load provides improved control over operating conditions through adjustable bias voltage.
+It achieves moderate to high gain due to the active load replacing passive resistors.
+The bias control allows tuning of output swing and transistor operating region.
+The circuit maintains good linearity for small differential input signals.
+At larger inputs, nonlinearity appears as one branch dominates current flow.
+The output voltage range is limited by saturation constraints of PMOS and NMOS devices.
+Overall, it offers better flexibility and performance tuning compared to fixed-load differential amplifiers.
+
+# Comparison of Differential Amplifier Circuits (1, 2, 3)
+
+| Parameter              | Circuit 1            | Circuit 2                | Circuit 3                |
+| ---------------------- | -------------------- | ------------------------ | ------------------------ |
+| Load Type              | Resistive Load (RD)  | Resistive Load           | PMOS Active Load         |
+| Tail Element           | Ideal Current Source | NMOS Current Source (M5) | NMOS Current Source (M5) |
+| Supply Voltage         | ±0.9 V               | ±0.9 V                   | ±0.9 V                   |
+| Tail Current (ISS)     | 0.833 mA             | 0.833 mA                 | 0.833 mA                 |
+| Current per Branch     | 0.416 mA             |  0.416 mA                | 0.416 mA                 |  
+| Theoretical Gain (V/V) | 4.47                 | 41.52                    | 41.52                    |
+| Simulated Gain (V/V)   | 13                   | 1.86                     | 32.28                    |
+| Gain (dB)              | 14.23 dB             | 5.39 dB                  | 30.17 dB                 |
+| Output Resistance      | Moderate             | Low                      | High                     |
+| Linearity              | Good                 | Limited                  | Good                     |
+| Degeneration Effect    | Low                  | High                     | Moderate                 |
+
+# Final  Conclusion
+
+* Circuit 1 demonstrates the basic working of a differential amplifier using resistive loads, providing good linearity but occupying large chip area, which makes it unsuitable for integrated circuits.
+
+* Circuit 2 improves area efficiency by replacing resistors with diode-connected transistors; however, this reduces the effective output resistance, leading to lower voltage gain and limited output swing.
+
+* Circuit 3 represents the widely used modern design, where PMOS transistors act as active loads along with an NMOS current source. This configuration significantly increases output resistance, thereby improving voltage gain.
+
+Additionally, the use of active loads enables better control over biasing conditions and enhances output swing while maintaining compact layout.
+
+Overall, Circuit 3 offers an optimal balance between gain, area efficien
+
+cy, and performance, making it the preferred choice in practical analog integrated circuits.
+
 
 
 
