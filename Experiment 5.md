@@ -64,13 +64,13 @@ As a result:
 
 
 
-Gain(dB) = -57.407 dB
+$$Gain(dB) = -57.407 dB$$
 
-Gain(V/V) = 1.348 mV/V
+$$Gain(V/V) = 1.348 mV/V$$
 
-Frequency at -3dB gain = 53.304KHz
+$$Frequency at -3dB gain = 53.304KHz$$
 
-GBP = 71.853 Hz
+$$GBP = 71.853 Hz$$
 
 ## 1.4 Inference:
 
@@ -94,6 +94,74 @@ The voltage gain is equal to 1 (unity gain), but the circuit plays an important 
 Because of this, the voltage follower is used as a buffer to isolate different stages of a circuit, preventing loading effects. It allows maximum signal transfer without loss of voltage.
 
 Voltage followers are widely used in signal conditioning, sensor interfacing, and analog circuits where maintaining signal integrity is important.
+
+## 2.1 Design & Circuit Description:
+
+
+Given:
+
+$$Vcc = 12 V$$
+
+$$-Vcc = 0 V$$
+
+$$Av = -5 V/V$$
+
+Design:
+
+For a voltage follower:
+
+$$Rf = 0$$
+$$R1 = ∞$$
+
+$$Av = 1 + (Rf / R1)$$
+
+$$Av = 1 + (0 / ∞ )$$
+
+$$Av = 1$$
+
+<img width="1912" height="907" alt="image" src="https://github.com/user-attachments/assets/29475cea-81a6-4a37-9aa8-08a84908a477" />
+
+## 2.2 Transient Analysis:
+
+<img width="1912" height="907" alt="image" src="https://github.com/user-attachments/assets/7560883f-2234-4501-a80c-21fbbb040d0c" />
+
+### Analysis of the Waveforms:
+
+Top Plot (V(vin))
+The top waveform represents the input signal, which is a sinusoidal wave. It corresponds to the source defined as SINE(0 3 1k), meaning zero DC offset, 3 V peak amplitude, and a frequency of 1 kHz. The waveform clearly shows a peak-to-peak variation from +3 V to −3 V, confirming correct input behavior.
+
+Bottom Plot (V(vout))
+The bottom waveform represents the output signal. As expected from a voltage follower configuration, the output closely tracks the input. It is in phase with the input and maintains the same amplitude, ranging approximately from −3 V to +3 V.
+
+Minor deviations near the peaks may be observed, which are due to non-ideal characteristics of the op-amp (such as finite gain and offset errors). These effects are typical in practical or simulated models like the µA741, even when using dual supply operation.
+
+## 2.3 Frequency Response:
+
+<img width="1907" height="902" alt="image" src="https://github.com/user-attachments/assets/5b8b3301-1af4-4a6c-88f4-5f790f34cb03" />
+
+$$Gain (dB) = -107.926 dB$$
+
+$$Gain (V/V) = 4.015 uV/V$$
+
+$$Frequency at -3 dB gain = 53.297 kHz$$
+
+$$GBP =0.213 Hz$$
+
+## 2.4 Inference:
+
+The voltage follower provides unity gain, meaning the output voltage closely follows the input voltage without amplification.
+It offers very high input impedance and very low output impedance, making it ideal for impedance matching.
+The circuit effectively isolates different stages, preventing loading effects on the signal source.
+The output waveform remains in phase with the input and preserves the signal shape.
+Minor deviations may occur due to non-ideal characteristics of the op-amp.
+Overall, it acts as an efficient buffer, ensuring maximum signal transfer with minimal distortion.
+
+
+
+
+
+
+
 
 
 
