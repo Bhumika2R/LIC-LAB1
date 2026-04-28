@@ -34,5 +34,37 @@ Vout = −6 V
 
 <img width="1915" height="431" alt="image" src="https://github.com/user-attachments/assets/c3e69551-29a9-423c-9fcb-a5e94c6c9fac" />
 
+Analysis of the Waveforms:
+
+V(x1) and V(x2):
+Both signals are constant at 500 mV (0.5 V), indicating steady DC input sources.
+
+V(vout):
+The output is observed using the scale on the left, which ranges approximately from −5.992 V to −6.005 V.
+
+Observation:
+The red waveform lies almost exactly at −6.000 V, confirming that the output is a constant DC value of −6 V, as expected from the summing amplifier calculation.
+
+Since the inputs (x₁ and x₂) are constant DC values, the output is also a constant DC value, resulting in a flat line.
+There is no time variation in the input signals, so the output does not change with time.
+If x₁ or x₂ were time-varying signals (like sine waves), the output would also vary accordingly, appearing as a scaled and inverted waveform.
+
+## Inference:
+
+The summing amplifier correctly produces the weighted sum of the input signals as a constant DC output.
+Since the inputs are fixed DC values, the output remains steady, resulting in a flat waveform.
+The circuit performs accurate addition and inversion as expected from theory.
+This confirms proper operation of the op-amp and resistor network.
+If time-varying inputs were applied, the output would also vary accordingly.
+
+# Subtractor:
+
+A subtractor is an op-amp circuit that produces an output proportional to the difference between two input signals.
+It uses both inverting and non-inverting inputs with a proper resistor network to achieve subtraction.
+The circuit amplifies the difference (V2 − V1) while rejecting common signals.
+The circuit is widely used in signal conditioning and measurement systems for extracting small differential signals in the presence of noise.
+
+$$Vout = (1 + Rf / R1) × (V1 × R2 / (R2 + R3)) − (V2 × Rf / R1)$$
+
 
  
